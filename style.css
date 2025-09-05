@@ -1,0 +1,13 @@
+body {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #FDD100; /* Pokémon Amarillo */
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
