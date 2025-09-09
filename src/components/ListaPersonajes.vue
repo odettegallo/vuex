@@ -1,12 +1,27 @@
 <template>
   <div class="lista-personajes">
     <h2 class="titulo-pokemon">Personajes Ficticios</h2>
-    <ul class="lista-items">
-      <li v-for="personaje in personajes" :key="personaje.id" class="personaje-card">
-        <h3>{{ personaje.nombre }}</h3>
-        <p>{{ personaje.descripcion }}</p>
-      </li>
-    </ul>
+    
+    <div class="mb-3">
+      <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Buscar Pokémon por nombre..." 
+        v-model="filtro"
+      >
+    </div>
+
+    <div v-if="personajesFiltrados.length > 0">
+      <ul class="lista-items">
+        <li v-for="personaje in personajesFiltrados" :key="personaje.id" class="personaje-card">
+          <h3>{{ personaje.nombre }}</h3>
+          <p>{{ personaje.descripcion }}</p>
+        </li>
+      </ul>
+    </div>
+    <div v-else>
+      <p class="no-pokemon-message">El pokemon que desea buscar no existe.</p>
+    </div>
   </div>
 </template>
 
@@ -15,8 +30,24 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'ListaPersonajes',
+  data() {
+    return {
+      filtro: ''
+    }
+  },
   computed: {
-    ...mapGetters(['personajes'])
+    ...mapGetters(['personajes']),
+    // Propiedad computada que filtra la lista de personajes
+    personajesFiltrados() {
+      // Si el filtro está vacío, devolvemos la lista completa
+      if (!this.filtro) {
+        return this.personajes
+      }
+      // De lo contrario, filtramos los personajes que coincidan con el filtro
+      return this.personajes.filter(personaje => 
+        personaje.nombre.toLowerCase().includes(this.filtro.toLowerCase())
+      )
+    }
   }
 }
 </script>
@@ -67,5 +98,12 @@ h3 {
 p {
   margin-bottom: 0;
   color: #2a348b;
+}
+
+.no-pokemon-message {
+  color: white;
+  text-shadow: 2px 2px #CC0000;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 </style>
