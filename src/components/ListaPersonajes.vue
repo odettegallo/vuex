@@ -60,8 +60,8 @@ export default {
   border: 8px solid #CC0000; /* Rojo de la Poké Ball */
   border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  max-width: 600px;
-  width: 90%;
+  max-width: 100%;
+  width: 100%;
 }
 
 .titulo-pokemon {
