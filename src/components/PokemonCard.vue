@@ -5,9 +5,9 @@
       <h5 class="card-title">{{ capitalize(pokemon.nombre) }}</h5>
       <p>ID: #{{ pokemon.id }}</p>
       <div class="characteristics">
-        <p><strong>Height:</strong> {{ pokemon.caracteristicas.height / 10 }} m</p>
-        <p><strong>Weight:</strong> {{ pokemon.caracteristicas.weight / 10 }} kg</p>
-        <p><strong>Abilities:</strong> {{ pokemon.caracteristicas.abilities }}</p>
+        <p><strong>Altura:</strong> {{ pokemon.caracteristicas.height / 10 }} m</p>
+        <p><strong>Peso:</strong> {{ pokemon.caracteristicas.weight / 10 }} kg</p>
+        <p><strong>Habilidades:</strong> {{ pokemon.caracteristicas.abilities }}</p>
       </div>
     </div>
   </div>
