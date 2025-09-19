@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="container mt-5">
     <ListaPersonajes />
   </div>
 </template>
@@ -14,3 +14,10 @@ export default {
   }
 }
 </script>
+
+<style>
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+</style>
